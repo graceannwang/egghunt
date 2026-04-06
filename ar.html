@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Egg Hunt</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/3.4.7/three.js/build/ar-threex-location-only.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/3.4.7/aframe/build/aframe-ar.js"></script>
+    <script src="eggs.js"></script>
+  </head>
+
+  <body class="ar">
+
+    <!-- Counter -->
+    <div id="counter">0 eggs found</div>
+
+    <!-- Hint overlay -->
+    <div id="hint-overlay">
+      <div id="hint-box">
+        <div id="hint-egg-number">Egg #1</div>
+        <div id="hint-found-badge">Found!</div>
+        <div id="hint-text"></div>
+        <button id="hint-close">Close</button>
+      </div>
+    </div>
+
+    <!-- AR scene -->
+    <a-scene
+      vr-mode-ui="enabled: false"
+      arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false"
+      renderer="antialias: true; alpha: true"
+      embedded>
+
+      <a-camera gps-new-camera="gpsMinDistance: 5">
+        <a-cursor fuse="false" raycaster="objects: [data-egg-id]"></a-cursor>
+      </a-camera>
+
+    </a-scene>
+
+    <script src="app.js"></script>
+  </body>
+</html>
