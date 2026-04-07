@@ -37,6 +37,26 @@ body.landing h1 {
 }
 
 /* ---- AR page ---- */
+#exit-camera {
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    z-index: 9999;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
 body.ar {
     margin: 0;
     overflow: hidden;
