@@ -1,0 +1,104 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.6s ease;
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+#stop-counter {
+  font-size: 1rem;
+  opacity: 0.7;
+  margin-bottom: 1rem;
+  margin-top: 15rem;
+}
+
+#distance {
+  font-size: 5rem;
+  font-weight: bold;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+#distance-label {
+  font-size: 1.4rem;
+  opacity: 0.85;
+  margin-bottom: 2rem;
+}
+
+#range {
+  font-size: 1.1rem;
+  opacity: 0.75;
+}
+
+#waiting {
+  font-size: 1.2rem;
+  opacity: 0.7;
+}
+
+#egg-container {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+}
+
+#egg {
+  font-size: 5rem;
+  line-height: 1;
+  display: inline-block;
+  will-change: transform;
+}
+
+#speech-bubble {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 14px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  color: #333;
+  font-size: 0.85rem;
+  font-weight: 600;
+  width: max-content;
+  max-width: 240px;
+  padding: 7px 12px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* tail pointing down toward the chick */
+#speech-bubble::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 7px solid transparent;
+  border-top-color: white;
+}
+
+#hint-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 12px 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  pointer-events: none;
+}
+
+#main { 
+  display: none; 
+}
