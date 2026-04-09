@@ -1,27 +1,29 @@
 // ── WAYPOINTS ────────────────────────────────────────────────────────────────
 // Define each stop in order.
-//   hint          — shown when the user arrives and taps the chick; null on the final stop
-//   secondaryHint — shown as a speech bubble when within secondaryRange feet (optional)
+//   hint          — clue telling the user how to find THIS stop.
+//                   WAYPOINTS[0].hint is shown in the hint-bar on page load.
+//                   Subsequent hints are revealed when the user taps at the previous stop.
+//   secondaryHint — shown as a speech bubble when within secondaryRange feet of THIS stop (optional)
 //   secondaryRange — distance in feet at which secondaryHint appears (optional)
 const WAYPOINTS = [
   {
     lat:           41.897490,
     lng:           -87.619770,
-    hint:          'Head to the red bench near the fountain',
+    hint:          'Start near the main entrance and look for something colorful',
     secondaryHint: 'Getting close — look for something round and wet',
     secondaryRange: 50,
   },
   {
     lat:           41.897488,
     lng:           -87.619460,
-    hint:          'Look for the blue door on the north side of the building',
+    hint:          'Head to the red bench near the fountain',
     secondaryHint: 'Almost there — what color stands out?',
     secondaryRange: 30,
   },
   {
     lat:           41.897486,
     lng:           -87.618323,
-    hint:          null,        // final stop — no next clue
+    hint:          'Look for the blue door on the north side of the building',
     secondaryHint: 'Nearly there — the end is in sight',
     secondaryRange: 40,
   },
@@ -62,12 +64,12 @@ eggContainerEl.addEventListener('click', () => {
   const isInside = distMeters !== null && metersToFeet(distMeters) <= RANGE_FEET;
 
   if (phase === 'navigating' && isInside) {
-    // First tap on arrival: reveal hint (or end hunt if this is the last stop)
-    phase = WAYPOINTS[currentIndex].hint === null ? 'complete' : 'hint-shown';
+    // First tap on arrival: reveal next hint (or end hunt if this is the last stop)
+    phase = currentIndex === WAYPOINTS.length - 1 ? 'complete' : 'hint-shown';
     renderUI();
   } else if (phase === 'hint-shown') {
-    // Second tap: persist the hint at the top, then advance to the next stop
-    hintBarEl.textContent = `Hint: ${WAYPOINTS[currentIndex].hint}`;
+    // Second tap: persist the next stop's hint at the top, then advance
+    hintBarEl.textContent = `Hint: ${WAYPOINTS[currentIndex + 1].hint}`;
     currentIndex++;
     phase = 'navigating';
     renderUI();
@@ -131,7 +133,7 @@ function renderUI() {
   } else if (phase === 'hint-shown') {
     // Keep hint visible even if user has started walking away
     setEggArrived();
-    speechBubbleEl.textContent = `${waypoint.hint} · Tap again when ready`;
+    speechBubbleEl.textContent = `${WAYPOINTS[currentIndex + 1].hint} · Tap again when ready`;
   } else if (isInside) {
     setEggArrived();
     speechBubbleEl.textContent = "You're here! Tap me for your next clue";
@@ -205,6 +207,8 @@ requestAnimationFrame(animateEgg);
 // ────────────────────────────────────────────────────────────────────────────
 
 // ── INIT ─────────────────────────────────────────────────────────────────────
+hintBarEl.textContent = `Hint: ${WAYPOINTS[0].hint}`;
+
 if (!navigator.geolocation) {
   waitingEl.textContent = 'Geolocation is not supported by this browser.';
 } else {
