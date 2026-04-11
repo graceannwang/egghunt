@@ -1,32 +1,32 @@
 // ── WAYPOINTS ────────────────────────────────────────────────────────────────
 // Two teams, each with their own ordered list of stops.
 // Share the URL with ?team=emerald or ?team=lilac to select a route.
-//   hint          — clue telling the user how to find THIS stop.
-//                   WAYPOINTS[0].hint is shown in the hint-bar on page load.
-//                   Subsequent hints are revealed when the user taps at the previous stop.
-//   secondaryHint — shown as a speech bubble when within secondaryRange feet of THIS stop (optional)
-//   secondaryRange — distance in feet at which secondaryHint appears (optional)
+//   clue          — clue telling the user how to find THIS stop.
+//                   WAYPOINTS[0].clue is shown in the clue-bar on page load.
+//                   Subsequent clues are revealed when the user taps at the previous stop.
+//   secondaryClue — shown as a speech bubble when within secondaryRange feet of THIS stop (optional)
+//   secondaryRange — distance in feet at which secondaryClue appears (optional)
 const ALL_WAYPOINTS = {
   emerald: [
     {
       lat:           41.897490,
       lng:           -87.619770,
-      hint:          'Start near the main entrance and look for something colorful',
-      secondaryHint: 'Getting close — look for something round and wet',
+      clue:          'Start near the main entrance and look for something colorful',
+      secondaryClue: 'Getting close — look for something round and wet',
       secondaryRange: 50,
     },
     {
       lat:           41.897488,
       lng:           -87.619460,
-      hint:          'Head to the red bench near the fountain',
-      secondaryHint: 'Almost there — what color stands out?',
+      clue:          'Head to the red bench near the fountain',
+      secondaryClue: 'Almost there — what color stands out?',
       secondaryRange: 30,
     },
     {
       lat:           41.897486,
       lng:           -87.618323,
-      hint:          'Look for the blue door on the north side of the building',
-      secondaryHint: 'Nearly there — the end is in sight',
+      clue:          'Look for the blue door on the north side of the building',
+      secondaryClue: 'Nearly there — the end is in sight',
       secondaryRange: 40,
     },
   ],
@@ -34,22 +34,22 @@ const ALL_WAYPOINTS = {
     {
       lat:           41.897490,
       lng:           -87.619770,
-      hint:          'Start near the main entrance and look for something colorful',
-      secondaryHint: 'Getting close — look for something round and wet',
+      clue:          'Start near the main entrance and look for something colorful',
+      secondaryClue: 'Getting close — look for something round and wet',
       secondaryRange: 50,
     },
     {
       lat:           41.897488,
       lng:           -87.619460,
-      hint:          'Head to the red bench near the fountain',
-      secondaryHint: 'Almost there — what color stands out?',
+      clue:          'Head to the red bench near the fountain',
+      secondaryClue: 'Almost there — what color stands out?',
       secondaryRange: 30,
     },
     {
       lat:           41.897486,
       lng:           -87.618323,
-      hint:          'Look for the blue door on the north side of the building',
-      secondaryHint: 'Nearly there — the end is in sight',
+      clue:          'Look for the blue door on the north side of the building',
+      secondaryClue: 'Nearly there — the end is in sight',
       secondaryRange: 40,
     },
   ],
@@ -68,15 +68,15 @@ const FEET_PER_METER = 3.28084;
 // ── STATE ────────────────────────────────────────────────────────────────────
 let currentIndex = 0;
 // phase:
-//   'navigating' — user is moving toward the current stop
-//   'hint-shown' — user arrived and tapped once; hint text is visible
-//   'complete'   — user tapped at the final stop; hunt is over
+//   'navigating'  — user is moving toward the current stop
+//   'clue-shown'  — user arrived and tapped once; clue text is visible
+//   'complete'    — user tapped at the final stop; hunt is over
 let phase      = 'navigating';
 let distMeters = null;
 // ────────────────────────────────────────────────────────────────────────────
 
 // ── DOM REFERENCES ───────────────────────────────────────────────────────────
-const hintBarEl      = document.getElementById('hint-bar');
+const clueBarEl      = document.getElementById('clue-bar');
 const waitingEl      = document.getElementById('waiting');
 const mainEl         = document.getElementById('main');
 const stopCounterEl  = document.getElementById('stop-counter');
@@ -93,12 +93,12 @@ eggContainerEl.addEventListener('click', () => {
   const isInside = distMeters !== null && metersToFeet(distMeters) <= RANGE_FEET;
 
   if (phase === 'navigating' && isInside) {
-    // First tap on arrival: reveal next hint (or end hunt if this is the last stop)
-    phase = currentIndex === WAYPOINTS.length - 1 ? 'complete' : 'hint-shown';
+    // First tap on arrival: reveal next clue (or end hunt if this is the last stop)
+    phase = currentIndex === WAYPOINTS.length - 1 ? 'complete' : 'clue-shown';
     renderUI();
-  } else if (phase === 'hint-shown') {
-    // Second tap: persist the next stop's hint at the top, then advance
-    hintBarEl.textContent = `Hint: ${WAYPOINTS[currentIndex + 1].hint}`;
+  } else if (phase === 'clue-shown') {
+    // Second tap: persist the next stop's clue at the top, then advance
+    clueBarEl.textContent = `Clue: ${WAYPOINTS[currentIndex + 1].clue}`;
     currentIndex++;
     phase = 'navigating';
     renderUI();
@@ -159,17 +159,17 @@ function renderUI() {
   if (phase === 'complete') {
     setEggArrived();
     speechBubbleEl.textContent = "You've completed the hunt!";
-  } else if (phase === 'hint-shown') {
-    // Keep hint visible even if user has started walking away
+  } else if (phase === 'clue-shown') {
+    // Keep clue visible even if user has started walking away
     setEggArrived();
-    speechBubbleEl.textContent = `${WAYPOINTS[currentIndex + 1].hint} · Tap again when ready`;
+    speechBubbleEl.textContent = `${WAYPOINTS[currentIndex + 1].clue} · Tap again when ready`;
   } else if (isInside) {
     setEggArrived();
     speechBubbleEl.textContent = "You're here! Tap me for your next clue";
-  } else if (waypoint.secondaryHint && distFt <= waypoint.secondaryRange) {
+  } else if (waypoint.secondaryClue && distFt <= waypoint.secondaryRange) {
     eggEl.textContent            = '🥚';
     speechBubbleEl.style.display = 'block';
-    speechBubbleEl.textContent   = waypoint.secondaryHint;
+    speechBubbleEl.textContent   = waypoint.secondaryClue;
   } else {
     eggEl.textContent            = '🥚';
     speechBubbleEl.style.display = 'none';
@@ -236,7 +236,7 @@ requestAnimationFrame(animateEgg);
 // ────────────────────────────────────────────────────────────────────────────
 
 // ── INIT ─────────────────────────────────────────────────────────────────────
-hintBarEl.textContent = `Hint: ${WAYPOINTS[0].hint}`;
+clueBarEl.textContent = `Clue: ${WAYPOINTS[0].clue}`;
 
 if (!navigator.geolocation) {
   waitingEl.textContent = 'Geolocation is not supported by this browser.';
