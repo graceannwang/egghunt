@@ -145,7 +145,7 @@ const ALL_WAYPOINTS = {
   ], 
   lilac: [ 
     { // birdhouse library 
-      id:            'entrance',
+      id:            'minilibrary',
       lat:           41.8975421,
       lng:           -87.6198315,
       clue:          '',
