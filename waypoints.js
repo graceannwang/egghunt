@@ -287,8 +287,6 @@ const ALL_WAYPOINTS = {
       secondaryRange: 30,
       arrivalMessages: [
         'What did you think of the mural?',
-        'Take a group picture by the lake and send it into the Partiful!',
-        'Pretty please 🥺? Grace would like to see your beautiful faces.',
         'Tap me to receive the next CLUE',
       ]
     },
@@ -323,6 +321,8 @@ const ALL_WAYPOINTS = {
       clue:          'CLUE: Pet the dogs.',
       arrivalMessages: [
         'Did you pet any dogs??',
+        'Take a group picture at the park and send it into the Partiful!',
+        'Pretty please 🥺? Grace would like to see your beautiful faces.',
         'Tap me to receive the next CLUE',
       ]
     },
