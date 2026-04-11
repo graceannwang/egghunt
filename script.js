@@ -66,7 +66,7 @@ eggContainerEl.addEventListener('click', () => {
     }
   } else if (phase === 'clue-shown') {
     // Persist the next stop's clue at the top, then advance
-    clueBarEl.textContent = `Clue: ${WAYPOINTS[currentIndex + 1].clue}`;
+    clueBarEl.textContent = `CLUE: ${WAYPOINTS[currentIndex + 1].clue}`;
     currentIndex++;
     phase = 'navigating';
     renderUI();

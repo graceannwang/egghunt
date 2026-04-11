@@ -121,7 +121,7 @@ const ALL_WAYPOINTS = {
       lat:           41.8951193,
       lng:           -87.6108924,
       targetRange:   20,
-      clue:          'CLUE: PFC U.S. ARMY COMPANY B\n2d BATTALION (AIRBORNE) 503d INFANTRY\n173d AIRBORNE BRIGADE',
+      clue:          'PFC U.S. ARMY COMPANY B\n2d BATTALION (AIRBORNE) 503d INFANTRY\n173d AIRBORNE BRIGADE',
       secondaryClue: 'A hexagon here... a hexagon there...',
       secondaryRange: 500,
       arrivalMessages: [
@@ -136,7 +136,7 @@ const ALL_WAYPOINTS = {
       lat:           41.8921524,
       lng:           -87.6118328,
       targetRange:   15,
-      clue:          'CLUE: Mmmm... I could eat a Chicago dog right about now.',
+      clue:          'Mmmm... I could eat a Chicago dog right about now.',
       arrivalMessages: [
         'GRACE says: "I\'ll be honest, Chicago dogs are... just ok',
         'Does anyone here like the Chicago dog?',
@@ -148,7 +148,7 @@ const ALL_WAYPOINTS = {
       id:            'childrensmuseum',
       lat:           41.8916807,
       lng:           -87.6103741,
-      clue:          'CLUE: Children are the future',
+      clue:          'Children are the future',
       arrivalMessages: [
         'Share your favorite childhood memory!',
         'Tap me to receive the next CLUE',
@@ -159,7 +159,7 @@ const ALL_WAYPOINTS = {
       lat:           41.8903272,
       lng:           -87.6099818,
       targetRange:   20,
-      clue:          'CLUE: Stroll south',
+      clue:          'Stroll south',
       secondaryClue: 'Who is that statuesque woman?',
       secondaryRange: 150,
       arrivalMessages: [
@@ -174,7 +174,7 @@ const ALL_WAYPOINTS = {
       lat:           41.8900249,
       lng:           -87.6103730,
       targetRange:   15,
-      clue:          'CLUE: Take the winding path past the children... and find the stage',
+      clue:          'Take the winding path past the children... and find the stage',
       secondaryClue: 'Sit atop the hill',
       secondaryRange: 100,
       arrivalMessages: [
@@ -187,7 +187,7 @@ const ALL_WAYPOINTS = {
       lat:           41.8910355,
       lng:           -87.6153878,
       targetRange:   25,
-      clue:          'CLUE: Sellia Georges is the owner of which award-winning eatery and coffee shop?',
+      clue:          'Sellia Georges is the owner of which award-winning eatery and coffee shop?',
       arrivalMessages: [
         'KEYWORD unlocked: WITH',
         'GRACE says: "I spend way too much money here"',
@@ -199,7 +199,7 @@ const ALL_WAYPOINTS = {
       lat:           41.8958343,
       lng:           -87.6229690,
       targetRange:   15,
-      clue:          'CLUE: Where does batman get his bagels?',
+      clue:          'Where does batman get his bagels?',
       arrivalMessages: [
         'You did it!!',
         'GRACE says: "I am so proud of you!"',
@@ -214,7 +214,7 @@ const ALL_WAYPOINTS = {
       id:            'minilibrary',
       lat:           41.8975421,
       lng:           -87.6198315,
-      clue:          'CLUE: Peruse the titles by the green. Take a moment by this little spot of joy.',
+      clue:          'Peruse the titles by the green. Take a moment by this little spot of joy.',
       arrivalMessages: [
         'GRACE says: "Chicago\'s supply of green spaces is one of my favorite things about the city"',
         'Tap me to receive the next CLUE',
@@ -224,7 +224,7 @@ const ALL_WAYPOINTS = {
       id:            'mca',
       lat:           41.8973542,
       lng:           -87.6216755,
-      clue:          'CLUE: Opening soon: combative twerking.',
+      clue:          'Opening soon: combative twerking.',
       secondaryClue: 'DANCING THE REVOLUTION',
       secondaryRange: 100,
       arrivalMessages: [
@@ -239,7 +239,7 @@ const ALL_WAYPOINTS = {
       lat:           41.8971994,
       lng:           -87.6245888,
       targetRange:   30,
-      clue:          'CLUE: I am a limestone, neo-Gothic thing of beauty.',
+      clue:          'I am a limestone, neo-Gothic thing of beauty.',
       secondaryClue: 'The year was 1871, there I stood, resilient.',
       secondaryRange: 500,
       arrivalMessages: [
@@ -253,7 +253,7 @@ const ALL_WAYPOINTS = {
       lat:           41.8982982,
       lng:           -87.6239434,
       targetRange:   25,
-      clue:          'CLUE: I am a thing of resilience, and to honor my name, they built... a mall???',
+      clue:          'I am a thing of resilience, and to honor my name, they built... a mall???',
       secondaryClue: 'It is Raquel Reyes\' year. You go girl!',
       secondaryRange: 200,
       arrivalMessages: [
@@ -269,7 +269,7 @@ const ALL_WAYPOINTS = {
       lat:           41.9011399,
       lng:           -87.6235323,
       targetRange:   15,
-      clue:          'CLUE: Set foot toward the garden of survival (there are many choices, choose wisely)',
+      clue:          'Set foot toward the garden of survival (there are many choices, choose wisely)',
       secondaryClue: 'I am the focal point of this park.',
       secondaryRange: 200,
       arrivalMessages: [
@@ -282,7 +282,7 @@ const ALL_WAYPOINTS = {
       id:            'oaklifesaver',
       lat:           41.9022301,
       lng:           -87.6229325,
-      clue:          'CLUE: Pass through Jeff Zimmerman\'s masterpiece. YOU KNOW WHAT YOU SHOULD DO TOO.',
+      clue:          'Pass through Jeff Zimmerman\'s masterpiece. YOU KNOW WHAT YOU SHOULD DO TOO.',
       secondaryClue: 'Save a life.',
       secondaryRange: 30,
       arrivalMessages: [
@@ -295,7 +295,7 @@ const ALL_WAYPOINTS = {
       lat:           41.9000761,
       lng:           -87.6252486,
       targetRange:   25,
-      clue:          'CLUE: Chef Renaud\'s country bread is my favorite to eat.',
+      clue:          'Chef Renaud\'s country bread is my favorite to eat.',
       arrivalMessages: [
         'GRACE says: "Every day this little shop tempts me."',
         'Take a look inside! You are here, might as well :)',
@@ -307,7 +307,7 @@ const ALL_WAYPOINTS = {
       lat:           41.8999041,
       lng:           -87.6306056,
       targetRange:   20,
-      clue:          'CLUE: After my death, I leave to the people of Chicago: a place for curious minds.',
+      clue:          'After my death, I leave to the people of Chicago: a place for curious minds.',
       arrivalMessages: [
         'GRACE says: "They give tours of this place! I have not yet attended one :("',
         'KEYWORD unlocked: Grace',
@@ -318,7 +318,7 @@ const ALL_WAYPOINTS = {
       id:            'washingtonsquare',
       lat:           41.8991914,
       lng:           -87.6305882,
-      clue:          'CLUE: Pet the dogs.',
+      clue:          'Pet the dogs.',
       arrivalMessages: [
         'Did you pet any dogs??',
         'Take a group picture at the park and send it into the Partiful!',
@@ -331,7 +331,7 @@ const ALL_WAYPOINTS = {
       lat:           41.8973135,
       lng:           -87.6283288,
       targetRange:   25,
-      clue:          'CLUE: On her birthday, Grace had a big bowl of pho for breakfast here.',
+      clue:          'On her birthday, Grace had a big bowl of pho for breakfast here.',
       arrivalMessages: [
         'GRACE says: "The pho was delicious."',
         'KEYWORD unlocked: what',
@@ -343,7 +343,7 @@ const ALL_WAYPOINTS = {
       lat:           41.8968029,
       lng:           -87.6280220,
       targetRange:   15,
-      clue:          'CLUE: This intersection brims with energy, a hub of movement and connection',
+      clue:          'This intersection brims with energy, a hub of movement and connection',
       secondaryClue: 'Choose the intersection closest to Grace\'s home',
       secondaryRange: 65,
       arrivalMessages: [
@@ -356,7 +356,7 @@ const ALL_WAYPOINTS = {
       lat:           41.8965601,
       lng:           -87.6244875,
       targetRange:   20,
-      clue:          'CLUE: Stroll east along the street named after this city.',
+      clue:          'Stroll east along the street named after this city.',
       secondaryClue: 'Apparently clothing stores sell coffee now',
       secondaryRange: 180,
       arrivalMessages: [
@@ -369,7 +369,7 @@ const ALL_WAYPOINTS = {
       lat:           41.8958343,
       lng:           -87.6229690,
       targetRange:   15,
-      clue:          'CLUE: Where does batman get his bagels?',
+      clue:          'Where does batman get his bagels?',
       arrivalMessages: [
         'You did it!!',
         'GRACE says: "I am so proud of you!"',
