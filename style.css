@@ -17,12 +17,11 @@ body {
 #stop-counter {
   font-size: 1rem;
   opacity: 0.7;
-  margin-bottom: 1rem;
-  margin-top: 15rem;
+  margin-top: 5rem;
 }
 
 #distance {
-  font-size: 5rem;
+  font-size: 3.8rem;
   font-weight: bold;
   line-height: 1;
   margin-bottom: 0.25rem;
@@ -52,7 +51,7 @@ body {
 }
 
 #egg {
-  font-size: 5rem;
+  font-size: 8rem;
   line-height: 1;
   display: inline-block;
   will-change: transform;
@@ -100,5 +99,6 @@ body {
 }
 
 #main { 
+  margin-top: 8.5rem;
   display: none; 
 }

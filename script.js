@@ -120,6 +120,8 @@ function renderUI() {
 
   document.body.style.backgroundColor = `hsl(${distToHue(distFt, rangeFt)}, 75%, 38%)`;
 
+  clueBarEl.style.display = phase === 'navigating' ? 'block' : 'none';
+
   stopCounterEl.textContent = `Stop ${currentIndex + 1} of ${WAYPOINTS.length}`;
   distanceEl.textContent    = Math.round(distFt);
   distLabelEl.textContent   = 'feet away';

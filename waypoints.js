@@ -9,7 +9,7 @@
 const ALL_WAYPOINTS = {
   test: [ // this is for dev testing only, not a real route
     {
-      id:              'entrance',
+      id:              'arrived',
       lat:             41.897490,
       lng:             -87.619770,
       targetRange:     200,
@@ -23,12 +23,12 @@ const ALL_WAYPOINTS = {
       ],
     },
     {
-      id:            'redbench',
+      id:            'navigating',
       lat:           41.897488,
       lng:           -87.619460,
       clue:          'Head to the red bench near the fountain',
       secondaryClue: 'Almost there — what color stands out?',
-      secondaryRange: 30,
+      secondaryRange: 5,
     },
     {
       id:            'bluedoor',
