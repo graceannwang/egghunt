@@ -1,33 +1,62 @@
 // ── WAYPOINTS ────────────────────────────────────────────────────────────────
-// Define each stop in order.
+// Two teams, each with their own ordered list of stops.
+// Share the URL with ?team=emerald or ?team=lilac to select a route.
 //   hint          — clue telling the user how to find THIS stop.
 //                   WAYPOINTS[0].hint is shown in the hint-bar on page load.
 //                   Subsequent hints are revealed when the user taps at the previous stop.
 //   secondaryHint — shown as a speech bubble when within secondaryRange feet of THIS stop (optional)
 //   secondaryRange — distance in feet at which secondaryHint appears (optional)
-const WAYPOINTS = [
-  {
-    lat:           41.897490,
-    lng:           -87.619770,
-    hint:          'Start near the main entrance and look for something colorful',
-    secondaryHint: 'Getting close — look for something round and wet',
-    secondaryRange: 50,
-  },
-  {
-    lat:           41.897488,
-    lng:           -87.619460,
-    hint:          'Head to the red bench near the fountain',
-    secondaryHint: 'Almost there — what color stands out?',
-    secondaryRange: 30,
-  },
-  {
-    lat:           41.897486,
-    lng:           -87.618323,
-    hint:          'Look for the blue door on the north side of the building',
-    secondaryHint: 'Nearly there — the end is in sight',
-    secondaryRange: 40,
-  },
-];
+const ALL_WAYPOINTS = {
+  emerald: [
+    {
+      lat:           41.897490,
+      lng:           -87.619770,
+      hint:          'Start near the main entrance and look for something colorful',
+      secondaryHint: 'Getting close — look for something round and wet',
+      secondaryRange: 50,
+    },
+    {
+      lat:           41.897488,
+      lng:           -87.619460,
+      hint:          'Head to the red bench near the fountain',
+      secondaryHint: 'Almost there — what color stands out?',
+      secondaryRange: 30,
+    },
+    {
+      lat:           41.897486,
+      lng:           -87.618323,
+      hint:          'Look for the blue door on the north side of the building',
+      secondaryHint: 'Nearly there — the end is in sight',
+      secondaryRange: 40,
+    },
+  ],
+  lilac: [
+    {
+      lat:           41.897490,
+      lng:           -87.619770,
+      hint:          'Start near the main entrance and look for something colorful',
+      secondaryHint: 'Getting close — look for something round and wet',
+      secondaryRange: 50,
+    },
+    {
+      lat:           41.897488,
+      lng:           -87.619460,
+      hint:          'Head to the red bench near the fountain',
+      secondaryHint: 'Almost there — what color stands out?',
+      secondaryRange: 30,
+    },
+    {
+      lat:           41.897486,
+      lng:           -87.618323,
+      hint:          'Look for the blue door on the north side of the building',
+      secondaryHint: 'Nearly there — the end is in sight',
+      secondaryRange: 40,
+    },
+  ],
+};
+
+const teamId   = new URLSearchParams(location.search).get('team') || 'emerald';
+const WAYPOINTS = ALL_WAYPOINTS[teamId] ?? ALL_WAYPOINTS.emerald;
 // ────────────────────────────────────────────────────────────────────────────
 
 // ── CONFIG ───────────────────────────────────────────────────────────────────

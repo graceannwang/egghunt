@@ -1,11 +1,9 @@
 Read me to get a better understanding of @script.js before you dive into the code.
 
-## What this app does
-A location-based scavenger hunt. The user navigates to GPS waypoints in sequence. As they get closer, the background color shifts red → yellow → green and the egg icon shakes with increasing intensity. On arrival, they tap the egg to reveal a hint, then tap again to advance to the next stop.
 
 ## Key sections (in order)
 
-**WAYPOINTS** (line 6) — Array of stops. Each has `lat/lng`, a `hint` describing how to find *that* stop (shown in hint-bar on load for stop 0; revealed on tap at the previous stop for all others), and an optional `secondaryHint`/`secondaryRange` proximity teaser. Final stop is detected by index, not a null hint.
+**ALL_WAYPOINTS** (line 6) — Object with two keys (`emerald`, `lilac`), each an array of stops. The active team is read from the `?team=` URL param (defaults to `emerald`); an unrecognized value also falls back to `emerald`. Each stop has `lat/lng`, a `hint` (shown in hint-bar on load for stop 0; revealed on tap at the previous stop for all others), and an optional `secondaryHint`/`secondaryRange` proximity teaser. Final stop is detected by index, not a null hint.
 
 **CONFIG** (line 32) — `RANGE_FEET` (arrival radius, default 10 ft), `FAR_FEET` (fully-red distance, default 200 ft).
 
