@@ -44,103 +44,169 @@ const ALL_WAYPOINTS = {
       id:            'busstop',
       lat:           41.8976848,
       lng:           -87.6200501,
+      targetRange:   20,
       clue:          'Off we go, on the road to honor Casimir Pulaski',
+      arrivalMessages: [
+        'GRACE says: "The funny thing is, I have never once ridden from this bus stop"',
+        'Tap me to receive the next CLUE',
+      ]
     },
     { // lake shore field house east entrance
       id:            'fieldhouse',
       lat:           41.8971490,
       lng:           -87.6176673,
-      clue:          'Start near the main entrance and look for something colorful',
-      secondaryClue: 'Getting close — look for something round and wet',
-      secondaryRange: 50,
+      clue:          'This famous alumna of the Second City plays an overly optimistic public servant in a popular fictional show. What kind of facility might her character frequent?',
+      secondaryClue: 'Choose the entrance that sees the sun first.',
+      secondaryRange: 125,
+      arrivalMessages: [
+        'GRACE says: "So much of my childhood has been spent at rec centers. Ah, the days of swim team..."',
+        'Tap me to receive the next CLUE',
+      ]
     },
     { // tunnel life saver
       id:            'lifesaver',
       lat:           41.8974869,
       lng:           -87.6169984,
-      clue:          'Start near the main entrance and look for something colorful',
-      secondaryClue: 'Getting close — look for something round and wet',
-      secondaryRange: 50,
+      clue:          'Pass through Chicago mural #19005',
+      secondaryClue: 'Save a life.',
+      secondaryRange: 120,
+      arrivalMessages: [
+        'GRACE says: "Living in the city has allowed me to appreciate public art in a way I never had before"',
+        'Also isn\'t the lake so lovely?',
+        'Tap me to receive the next CLUE',
+      ]
     },
     { // ohio street beach - lockers
       id:            'ohiobeach',
       lat:           41.8931839,
       lng:           -87.6137550,
-      clue:          'Start near the main entrance and look for something colorful',
-      secondaryClue: 'Getting close — look for something round and wet',
-      secondaryRange: 50,
+      clue:          'Take a stroll. Enjoy the lake. Choose your direction wisely.',
+      secondaryClue: 'Ah shoot -- you want to take a dip, where do you put your belongings?',
+      secondaryRange: 140,
+      arrivalMessages: [
+        'KEYWORD unlocked: famous',
+        'Remember this keyword, it will be important later on!',
+        'Tap me to receive the next CLUE',
+      ]
     },
     { // jane adams - chess
       id:            'chess',
       lat:           41.8930254,
       lng:           -87.6133124,
-      clue:          'Start near the main entrance and look for something colorful',
-      secondaryClue: 'Getting close — look for something round and wet',
-      secondaryRange: 50,
+      targetRange:   15,
+      clue:          'Play some chess',
+      secondaryClue: 'We should bring the New York culture of playing chess in parks here.',
+      secondaryRange: 60,
+      arrivalMessages: [
+        'Does anyone here like to play chess?',
+        'Tap me to receive the next CLUE',
+      ]
     },
     { // jane adams - sculpture
       id:            'jasculpture',
       lat:           41.8928584,
       lng:           -87.6128836,
-      clue:          'Start near the main entrance and look for something colorful',
-      secondaryClue: 'Getting close — look for something round and wet',
-      secondaryRange: 50,
+      targetRange:   15,
+      clue:          'Honor the first American woman to win the Nobel Peace Prize',
+      arrivalMessages: [
+        'Who run the world?',
+        'Girls!',
+        'Who run the world?',
+        'Girls!',
+        'Tap me to receive the next CLUE',
+      ]
     },
     { // milton lee olive park
       id:            'mlopark',
       lat:           41.8951193,
       lng:           -87.6108924,
-      clue:          'Start near the main entrance and look for something colorful',
-      secondaryClue: 'Getting close — look for something round and wet',
-      secondaryRange: 50,
+      targetRange:   20,
+      clue:          'CLUE: PFC U.S. ARMY COMPANY B\n2d BATTALION (AIRBORNE) 503d INFANTRY\n173d AIRBORNE BRIGADE',
+      secondaryClue: 'A hexagon here... a hexagon there...',
+      secondaryRange: 500,
+      arrivalMessages: [
+        'GRACE says: "My favorite view of the city <3"',
+        'Take a moment to enjoy the view! Take a group photo and send it into the Partiful',
+        'Pretty please 🥺? Grace would like to see your beautiful faces.',
+        'Tap me to receive the next CLUE',
+      ]
     },
     { // chicago dog
       id:            'chicagodog',
       lat:           41.8921524,
       lng:           -87.6118328,
-      clue:          'Start near the main entrance and look for something colorful',
-      secondaryClue: 'Getting close — look for something round and wet',
-      secondaryRange: 50,
+      targetRange:   15,
+      clue:          'CLUE: Mmmm... I could eat a Chicago dog right about now.',
+      arrivalMessages: [
+        'GRACE says: "I\'ll be honest, Chicago dogs are... just ok',
+        'Does anyone here like the Chicago dog?',
+        'KEYWORD unlocked: A',
+        'Tap me to receive the next CLUE',
+      ]
     },
     { // navy pier children's museum
       id:            'childrensmuseum',
       lat:           41.8916807,
       lng:           -87.6103741,
-      clue:          'Start near the main entrance and look for something colorful',
-      secondaryClue: 'Getting close — look for something round and wet',
-      secondaryRange: 50,
+      clue:          'CLUE: Children are the future',
+      arrivalMessages: [
+        'Share your favorite childhood memory!',
+        'Tap me to receive the next CLUE',
+      ]
     },
     { // TO SIT AWHILE statue
       id:            'sitawhile',
       lat:           41.8903272,
       lng:           -87.6099818,
-      clue:          'Start near the main entrance and look for something colorful',
-      secondaryClue: 'Getting close — look for something round and wet',
-      secondaryRange: 50,
+      targetRange:   20,
+      clue:          'CLUE: Stroll south',
+      secondaryClue: 'Who is that statuesque woman?',
+      secondaryRange: 150,
+      arrivalMessages: [
+        'Who run the world?',
+        'GIRLS!!!!',
+        'Take a sit :)',
+        'Tap me to receive the next CLUE',
+      ]
     },
     { // polk bros park bench
       id:            'polkbench',
       lat:           41.8900249,
       lng:           -87.6103730,
-      clue:          'Start near the main entrance and look for something colorful',
-      secondaryClue: 'Getting close — look for something round and wet',
-      secondaryRange: 50,
+      targetRange:   15,
+      clue:          'CLUE: Take the winding path past the children... and find the stage',
+      secondaryClue: 'Sit atop the hill',
+      secondaryRange: 100,
+      arrivalMessages: [
+        'GRACE says: "Sometimes I sit here and play my guitar"',
+        'Tap me to receive the next CLUE',
+      ]
     },
     { // cupitol coffee
       id:            'cupitol',
       lat:           41.8910355,
       lng:           -87.6153878,
-      clue:          'Start near the main entrance and look for something colorful',
-      secondaryClue: 'Getting close — look for something round and wet',
-      secondaryRange: 50,
+      targetRange:   25,
+      clue:          'CLUE: Sellia Georges is the owner of which award-winning eatery and coffee shop?',
+      arrivalMessages: [
+        'KEYWORD unlocked: WITH',
+        'GRACE says: "I spend way too much money here"',
+        'Tap me to receive the next CLUE',
+      ]
     },
     { // gotham bagels
       id:            'gotham',
       lat:           41.8958343,
       lng:           -87.6229690,
-      clue:          'Start near the main entrance and look for something colorful',
-      secondaryClue: 'Getting close — look for something round and wet',
-      secondaryRange: 50,
+      targetRange:   15,
+      clue:          'CLUE: Where does batman get his bagels?',
+      arrivalMessages: [
+        'You did it!!',
+        'GRACE says: "I am so proud of you!"',
+        'KEYWORD unlocked: CONSERVATIONIST',
+        'You\'ve unlocked all keywords for this route!',
+        'To earn your final prize, meet team LILAC back at your starting location'
+      ]
     },
   ], 
   lilac: [ 
@@ -220,7 +286,8 @@ const ALL_WAYPOINTS = {
       secondaryClue: 'Save a life.',
       secondaryRange: 30,
       arrivalMessages: [
-        'Take a group picture and send it into the Partiful!',
+        'What did you think of the mural?',
+        'Take a group picture by the lake and send it into the Partiful!',
         'Pretty please 🥺? Grace would like to see your beautiful faces.',
         'Tap me to receive the next CLUE',
       ]
@@ -307,7 +374,8 @@ const ALL_WAYPOINTS = {
         'You did it!!',
         'GRACE says: "I am so proud of you!"',
         'KEYWORD unlocked: shared',
-        'You\'ve unlocked all keywords for this route! Discuss with team EMERALD to unlock the final prize'
+        'You\'ve unlocked all keywords for this route!',
+        'To earn your final prize, meet team LILAC back at your starting location'
       ]
     },
   ],
