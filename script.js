@@ -9,7 +9,7 @@ const startIndex = startId ? WAYPOINTS.findIndex(w => w.id === startId) : -1;
 // ────────────────────────────────────────────────────────────────────────────
 
 // ── CONFIG ───────────────────────────────────────────────────────────────────
-const RANGE_FEET     = 10;   // arrival radius in feet
+const RANGE_FEET     = 10;   // default arrival radius in feet
 const FAR_FEET       = 200;  // distance at which color is fully red
 const FEET_PER_METER = 3.28084;
 // ────────────────────────────────────────────────────────────────────────────
@@ -116,7 +116,7 @@ function renderUI() {
     speechBubbleEl.textContent = `${WAYPOINTS[currentIndex + 1].clue} · Tap again when ready`;
   } else if (isInside) {
     setEggArrived();
-    speechBubbleEl.textContent = "You're here! Tap me for your next clue";
+    speechBubbleEl.textContent = "YOU'VE ARRIVED! Tap me.";
   } else if (waypoint.secondaryClue && distFt <= waypoint.secondaryRange) {
     eggEl.textContent            = '🥚';
     speechBubbleEl.style.display = 'block';
