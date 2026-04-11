@@ -243,8 +243,10 @@ const ALL_WAYPOINTS = {
       secondaryClue: 'The year was 1871, there I stood, resilient.',
       secondaryRange: 500,
       arrivalMessages: [
-        'GRACE says: "The Chicago Water Tower is one of the few buildings to survive the Great Chicago Fire, which is pretty incredible considering how devastating the fire was"',
-        'GRACE says: "I have a soft spot for gothic architecture, so I\'m a big fan of the water tower"',
+        'The Chicago Water Tower is one of the few buildings to survive the Great Chicago Fire, which is pretty incredible considering how devastating the fire was',
+        'This area is a popular site for protest nowadays.',
+        'Take a group picture at the park and send it into the Partiful!',
+        'Pretty please 🥺? Grace would like to see your beautiful faces.',
         'Tap me to receive the next CLUE',
       ],
     },
@@ -282,7 +284,7 @@ const ALL_WAYPOINTS = {
       id:            'oaklifesaver',
       lat:           41.9022301,
       lng:           -87.6229325,
-      clue:          'Pass through Jeff Zimmerman\'s masterpiece. YOU KNOW WHAT YOU SHOULD DO TOO.',
+      clue:          'Pass by Jeff Zimmerman\'s masterpiece. YOU KNOW WHAT YOU SHOULD DO TOO.',
       secondaryClue: 'Save a life.',
       secondaryRange: 30,
       arrivalMessages: [

@@ -140,7 +140,7 @@ function renderUI() {
   } else if (phase === 'clue-shown') {
     // Keep clue visible even if user has started walking away
     setEggArrived();
-    speechBubbleEl.textContent = `${WAYPOINTS[currentIndex + 1].clue} · Tap me to start the next leg`;
+    speechBubbleEl.textContent = `NEXT CLUE: ${WAYPOINTS[currentIndex + 1].clue} · TAP TO START`;
   } else if (isInside) {
     setEggArrived();
     speechBubbleEl.textContent = "YOU'VE ARRIVED! Tap me.";
