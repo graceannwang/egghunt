@@ -6,7 +6,7 @@ Read me to get a better understanding of @script.js before you dive into the cod
 
 ## Key sections (in order)
 
-**CONFIG** (line 3) — `RANGE_FEET` (arrival radius, default 10 ft), `FAR_FEET` (fully-red distance, default 200 ft).
+**CONFIG** (line 3) — `RANGE_FEET` (default arrival radius, 10 ft), `FAR_FEET` (fully-red distance, default 200 ft). Individual waypoints can override the arrival radius with a `targetRange` field (in feet).
 
 **STATE** (line 13) — `currentIndex` (which waypoint), `phase` (`'navigating'` | `'clue-shown'` | `'complete'`), `distMeters` (live distance to current waypoint).
 

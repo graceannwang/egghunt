@@ -39,7 +39,8 @@ const rangeEl        = document.getElementById('range');
 
 // ── TAP HANDLER ──────────────────────────────────────────────────────────────
 eggContainerEl.addEventListener('click', () => {
-  const isInside = distMeters !== null && metersToFeet(distMeters) <= RANGE_FEET;
+  const rangeFt  = WAYPOINTS[currentIndex].targetRange ?? RANGE_FEET;
+  const isInside = distMeters !== null && metersToFeet(distMeters) <= rangeFt;
 
   if (phase === 'navigating' && isInside) {
     // First tap on arrival: reveal next clue (or end hunt if this is the last stop)
@@ -71,19 +72,19 @@ function haversineDistance(lat1, lng1, lat2, lng2) {
 
 /**
  * Maps distance to a hue on the red → yellow → green spectrum.
- * dist >= FAR_FEET   → hue   0 (red)
- * dist == RANGE_FEET → hue  60 (yellow)
- * dist <= 0          → hue 120 (green)
+ * dist >= FAR_FEET  → hue   0 (red)
+ * dist == rangeFt   → hue  60 (yellow)
+ * dist <= 0         → hue 120 (green)
  */
-function distToHue(distFt) {
+function distToHue(distFt, rangeFt) {
   if (distFt >= FAR_FEET) return 0;
   if (distFt <= 0)        return 120;
 
-  if (distFt > RANGE_FEET) {
-    const t = (FAR_FEET - distFt) / (FAR_FEET - RANGE_FEET);
+  if (distFt > rangeFt) {
+    const t = (FAR_FEET - distFt) / (FAR_FEET - rangeFt);
     return t * 60;                // Red → Yellow
   } else {
-    const t = 1 - distFt / RANGE_FEET;
+    const t = 1 - distFt / rangeFt;
     return 60 + t * 60;          // Yellow → Green
   }
 }
@@ -95,15 +96,16 @@ function renderUI() {
   mainEl.style.display    = 'block';
 
   const distFt   = metersToFeet(distMeters);
-  const isInside = distFt <= RANGE_FEET;
   const waypoint = WAYPOINTS[currentIndex];
+  const rangeFt  = waypoint.targetRange ?? RANGE_FEET;
+  const isInside = distFt <= rangeFt;
 
-  document.body.style.backgroundColor = `hsl(${distToHue(distFt)}, 75%, 38%)`;
+  document.body.style.backgroundColor = `hsl(${distToHue(distFt, rangeFt)}, 75%, 38%)`;
 
   stopCounterEl.textContent = `Stop ${currentIndex + 1} of ${WAYPOINTS.length}`;
   distanceEl.textContent    = Math.round(distFt);
   distLabelEl.textContent   = 'feet away';
-  rangeEl.textContent       = `Target range: ${RANGE_FEET} ft`;
+  rangeEl.textContent       = `Target range: ${rangeFt} ft`;
 
   if (phase === 'complete') {
     setEggArrived();
@@ -164,7 +166,8 @@ function animateEgg(timestamp) {
   lastTime = timestamp;
 
   const distFt   = distMeters !== null ? metersToFeet(distMeters) : SHAKE_START_FEET;
-  const isInside = distMeters !== null && distFt <= RANGE_FEET;
+  const rangeFt  = WAYPOINTS[currentIndex].targetRange ?? RANGE_FEET;
+  const isInside = distMeters !== null && distFt <= rangeFt;
   const amp      = shakeAmplitude(distFt);
 
   if (!isInside && phase === 'navigating' && amp > 0.01) {
