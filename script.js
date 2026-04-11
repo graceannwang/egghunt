@@ -1,7 +1,11 @@
 // ALL_WAYPOINTS is defined in waypoints.js, loaded before this script.
 
-const teamId   = new URLSearchParams(location.search).get('team') || 'emerald';
+const params    = new URLSearchParams(location.search);
+const teamId    = params.get('team') || 'emerald';
 const WAYPOINTS = ALL_WAYPOINTS[teamId] ?? ALL_WAYPOINTS.emerald;
+
+const startId    = params.get('start');
+const startIndex = startId ? WAYPOINTS.findIndex(w => w.id === startId) : -1;
 // ────────────────────────────────────────────────────────────────────────────
 
 // ── CONFIG ───────────────────────────────────────────────────────────────────
@@ -11,7 +15,7 @@ const FEET_PER_METER = 3.28084;
 // ────────────────────────────────────────────────────────────────────────────
 
 // ── STATE ────────────────────────────────────────────────────────────────────
-let currentIndex = 0;
+let currentIndex = startIndex >= 0 ? startIndex : 0;
 // phase:
 //   'navigating'  — user is moving toward the current stop
 //   'clue-shown'  — user arrived and tapped once; clue text is visible
@@ -181,7 +185,7 @@ requestAnimationFrame(animateEgg);
 // ────────────────────────────────────────────────────────────────────────────
 
 // ── INIT ─────────────────────────────────────────────────────────────────────
-clueBarEl.textContent = `Clue: ${WAYPOINTS[0].clue}`;
+clueBarEl.textContent = `Clue: ${WAYPOINTS[currentIndex].clue}`;
 
 if (!navigator.geolocation) {
   waitingEl.textContent = 'Geolocation is not supported by this browser.';

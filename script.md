@@ -2,7 +2,7 @@ Read me to get a better understanding of @script.js before you dive into the cod
 
 `ALL_WAYPOINTS` lives in @waypoints.js (loaded before script.js). Edit waypoints there.
 
-**ALL_WAYPOINTS** Object with keys (`emerald`, `lilac`, `test`), each an array of stops. The active team is read from the `?team=` URL param (defaults to `emerald`); an unrecognized value also falls back to `emerald`. Each stop has `lat/lng`, a `clue` (shown in clue-bar on load for stop 0; revealed on tap at the previous stop for all others), and an optional `secondaryClue`/`secondaryRange` proximity teaser. Final stop is detected by index, not a null clue.
+**ALL_WAYPOINTS** Object with keys (`emerald`, `lilac`, `test`), each an array of stops. The active team is read from the `?team=` URL param (defaults to `emerald`); an unrecognized value also falls back to `emerald`. Each stop has `lat/lng`, a `clue` (shown in clue-bar on load for stop 0; revealed on tap at the previous stop for all others), and an optional `secondaryClue`/`secondaryRange` proximity teaser. Final stop is detected by index, not a null clue. Each stop also has an `id` string (e.g. `'busstop'`, `'fieldhouse'`) used for dev/testing only — pass `?start=<id>` to jump directly to that waypoint.
 
 ## Key sections (in order)
 
