@@ -18,10 +18,12 @@ const FEET_PER_METER = 3.28084;
 let currentIndex = startIndex >= 0 ? startIndex : 0;
 // phase:
 //   'navigating'  — user is moving toward the current stop
-//   'clue-shown'  — user arrived and tapped once; clue text is visible
-//   'complete'    — user tapped at the final stop; hunt is over
-let phase      = 'navigating';
-let distMeters = null;
+//   'dialog'      — user arrived and is tapping through arrivalMessages
+//   'clue-shown'  — user finished dialog; next clue is visible
+//   'complete'    — user finished dialog at the final stop; hunt is over
+let phase       = 'navigating';
+let dialogIndex = 0;   // index into current waypoint's arrivalMessages
+let distMeters  = null;
 // ────────────────────────────────────────────────────────────────────────────
 
 // ── DOM REFERENCES ───────────────────────────────────────────────────────────
@@ -42,12 +44,28 @@ eggContainerEl.addEventListener('click', () => {
   const rangeFt  = WAYPOINTS[currentIndex].targetRange ?? RANGE_FEET;
   const isInside = distMeters !== null && metersToFeet(distMeters) <= rangeFt;
 
+  const isFinal = currentIndex === WAYPOINTS.length - 1;
+
   if (phase === 'navigating' && isInside) {
-    // First tap on arrival: reveal next clue (or end hunt if this is the last stop)
-    phase = currentIndex === WAYPOINTS.length - 1 ? 'complete' : 'clue-shown';
+    const msgs = WAYPOINTS[currentIndex].arrivalMessages;
+    if (msgs && msgs.length > 0) {
+      dialogIndex = 0;
+      phase = 'dialog';
+    } else {
+      phase = isFinal ? 'complete' : 'clue-shown';
+    }
     renderUI();
+  } else if (phase === 'dialog') {
+    const msgs = WAYPOINTS[currentIndex].arrivalMessages;
+    if (dialogIndex < msgs.length - 1) {
+      dialogIndex++;
+      renderUI();
+    } else {
+      phase = isFinal ? 'complete' : 'clue-shown';
+      renderUI();
+    }
   } else if (phase === 'clue-shown') {
-    // Second tap: persist the next stop's clue at the top, then advance
+    // Persist the next stop's clue at the top, then advance
     clueBarEl.textContent = `Clue: ${WAYPOINTS[currentIndex + 1].clue}`;
     currentIndex++;
     phase = 'navigating';
@@ -110,10 +128,17 @@ function renderUI() {
   if (phase === 'complete') {
     setEggArrived();
     speechBubbleEl.textContent = "You've completed the hunt!";
+  } else if (phase === 'dialog') {
+    setEggArrived();
+    const msgs = waypoint.arrivalMessages;
+    const isLast = dialogIndex === msgs.length - 1;
+    speechBubbleEl.textContent = isLast
+      ? `${msgs[dialogIndex]} · Tap to continue`
+      : msgs[dialogIndex];
   } else if (phase === 'clue-shown') {
     // Keep clue visible even if user has started walking away
     setEggArrived();
-    speechBubbleEl.textContent = `${WAYPOINTS[currentIndex + 1].clue} · Tap again when ready`;
+    speechBubbleEl.textContent = `${WAYPOINTS[currentIndex + 1].clue} · Tap me to start the next leg`;
   } else if (isInside) {
     setEggArrived();
     speechBubbleEl.textContent = "YOU'VE ARRIVED! Tap me.";

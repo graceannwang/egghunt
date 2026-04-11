@@ -7,14 +7,20 @@
 //   secondaryClue — shown as a speech bubble when within secondaryRange feet of THIS stop (optional)
 //   secondaryRange — distance in feet at which secondaryClue appears (optional)
 const ALL_WAYPOINTS = {
-  test: [
+  test: [ // this is for dev testing only, not a real route
     {
-      id:            'entrance',
-      lat:           41.897490,
-      lng:           -87.619770,
-      clue:          'Start near the main entrance and look for something colorful',
-      secondaryClue: 'Getting close — look for something round and wet',
-      secondaryRange: 50,
+      id:              'entrance',
+      lat:             41.897490,
+      lng:             -87.619770,
+      targetRange:     200,
+      clue:            'Start near the main entrance and look for something colorful',
+      secondaryClue:   'Getting close — look for something round and wet',
+      secondaryRange:  50,
+      arrivalMessages: [
+        "You found it!",
+        "Here's a little riddle for you...",
+        "What has hands but can't clap?",
+      ],
     },
     {
       id:            'redbench',
