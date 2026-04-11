@@ -48,6 +48,7 @@ const ALL_WAYPOINTS = {
       clue:          'Off we go, on the road to honor Casimir Pulaski',
       arrivalMessages: [
         'GRACE says: "The funny thing is, I have never once ridden from this bus stop"',
+        'How often do you guys ride the CTA?',
         'Tap me to receive the next CLUE',
       ]
     },
@@ -60,6 +61,7 @@ const ALL_WAYPOINTS = {
       secondaryRange: 125,
       arrivalMessages: [
         'GRACE says: "So much of my childhood has been spent at rec centers. Ah, the days of swim team..."',
+        'Anyone a fan of Parks & Rec (tv show)?',
         'Tap me to receive the next CLUE',
       ]
     },
@@ -93,7 +95,7 @@ const ALL_WAYPOINTS = {
       id:            'chess',
       lat:           41.8930254,
       lng:           -87.6133124,
-      targetRange:   15,
+      targetRange:   18,
       clue:          'Play some chess',
       secondaryClue: 'We should bring the New York culture of playing chess in parks here.',
       secondaryRange: 60,
@@ -135,12 +137,13 @@ const ALL_WAYPOINTS = {
       id:            'chicagodog',
       lat:           41.8921524,
       lng:           -87.6118328,
-      targetRange:   15,
+      targetRange:   18,
       clue:          'Mmmm... I could eat a Chicago dog right about now.',
       arrivalMessages: [
         'GRACE says: "I\'ll be honest, Chicago dogs are... just ok',
         'Does anyone here like the Chicago dog?',
         'KEYWORD unlocked: A',
+        'Remember this keyword, it will be important later on!',
         'Tap me to receive the next CLUE',
       ]
     },
@@ -179,6 +182,7 @@ const ALL_WAYPOINTS = {
       secondaryRange: 100,
       arrivalMessages: [
         'GRACE says: "Sometimes I sit here and play my guitar"',
+        'Anyone like concerts?',
         'Tap me to receive the next CLUE',
       ]
     },
@@ -191,6 +195,7 @@ const ALL_WAYPOINTS = {
       arrivalMessages: [
         'KEYWORD unlocked: WITH',
         'GRACE says: "I spend way too much money here"',
+        'What is everyone\'s favorite coffee shop?',
         'Tap me to receive the next CLUE',
       ]
     },
@@ -198,7 +203,7 @@ const ALL_WAYPOINTS = {
       id:            'gotham',
       lat:           41.8958343,
       lng:           -87.6229690,
-      targetRange:   15,
+      targetRange:   20,
       clue:          'Where does batman get his bagels?',
       arrivalMessages: [
         'You did it!!',
@@ -217,6 +222,7 @@ const ALL_WAYPOINTS = {
       clue:          'Peruse the titles by the green. Take a moment by this little spot of joy.',
       arrivalMessages: [
         'GRACE says: "Chicago\'s supply of green spaces is one of my favorite things about the city"',
+        'Anyone have a favorite park in the city?',
         'Tap me to receive the next CLUE',
       ],
     },
@@ -238,7 +244,7 @@ const ALL_WAYPOINTS = {
       id:            'oldwatertower',
       lat:           41.8971994,
       lng:           -87.6245888,
-      targetRange:   30,
+      targetRange:   20,
       clue:          'I am a limestone, neo-Gothic thing of beauty.',
       secondaryClue: 'The year was 1871, there I stood, resilient.',
       secondaryRange: 500,
@@ -254,10 +260,10 @@ const ALL_WAYPOINTS = {
       id:            'americangirl',
       lat:           41.8982982,
       lng:           -87.6239434,
-      targetRange:   25,
+      targetRange:   30,
       clue:          'I am a thing of resilience, and to honor my name, they built... a mall???',
       secondaryClue: 'It is Raquel Reyes\' year. You go girl!',
-      secondaryRange: 200,
+      secondaryRange: 220,
       arrivalMessages: [
         'GRACE says: "I used to look through American girl Doll magazines all the time when I was little"',
         'GRACE says: "Really wanted a doll, never got one!"',
@@ -288,7 +294,8 @@ const ALL_WAYPOINTS = {
       secondaryClue: 'Save a life.',
       secondaryRange: 30,
       arrivalMessages: [
-        'What did you think of the mural?',
+        'What did you guys think of the mural?',
+        'GRACE says: "If I could have a secret career, it would be as a graffiti artist"',
         'Tap me to receive the next CLUE',
       ]
     },
@@ -313,6 +320,7 @@ const ALL_WAYPOINTS = {
       arrivalMessages: [
         'GRACE says: "They give tours of this place! I have not yet attended one :("',
         'KEYWORD unlocked: Grace',
+        'Remember this keyword, it will be important later on!',
         'Tap me to receive the next CLUE',
       ],
     },
@@ -336,7 +344,8 @@ const ALL_WAYPOINTS = {
       clue:          'On her birthday, Grace had a big bowl of pho for breakfast here.',
       arrivalMessages: [
         'GRACE says: "The pho was delicious."',
-        'KEYWORD unlocked: what',
+        'What is the group\'s favorite cuisine?',
+        'KEYWORD unlocked: WHAT',
         'Tap me to receive the next CLUE',
       ],
     },
@@ -344,7 +353,7 @@ const ALL_WAYPOINTS = {
       id:            'chicagoredline',
       lat:           41.8968029,
       lng:           -87.6280220,
-      targetRange:   15,
+      targetRange:   20,
       clue:          'This intersection brims with energy, a hub of movement and connection',
       secondaryClue: 'Choose the intersection closest to Grace\'s home',
       secondaryRange: 65,
@@ -370,7 +379,7 @@ const ALL_WAYPOINTS = {
       id:            'gotham',
       lat:           41.8958343,
       lng:           -87.6229690,
-      targetRange:   15,
+      targetRange:   20,
       clue:          'Where does batman get his bagels?',
       arrivalMessages: [
         'You did it!!',
